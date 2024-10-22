@@ -17,12 +17,20 @@
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/p5.min.js"></script>
-  
+
   <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
 </head>
 
+<?php 
+include "./header.component.php";
+echo createHeader();
+?>
+
 <body>
+
+
+
 
   <div class="wrapper">
 
@@ -30,10 +38,10 @@
     <div class="container">
 
       <a href="index.html">
-        <div class="cube" style="animation-duration: .6s; height: 150px; margin-left: -.6px; margin-bottom: -.5px">
-          <div class="facetopstart top"></div>
-          <div class="facestart left"></div>
-          <div class="facelongstart front marqueewrapper">
+        <div class="nav-cube" style="animation-duration: .6s; height: 150px; margin-left: -.6px; margin-bottom: -.5px">
+          <div class="nav-face-top top"></div>
+          <div class="nav-face-left left"></div>
+          <div class="nav-face-front front marqueewrapper">
             <h1>Moments</h1>
             <h2 class="marquee">t h e g a m e o f r i s k a n d r e w a r d</h2>
             <img src="./images/eye.gif">
@@ -41,70 +49,52 @@
         </div>
       </a>
 
-        <div class="cube cubehover" style="animation-duration: .8s; margin-top: 100px;  ">
-          <div class="facelong front">Hover to Start</div>
-
-
+      <div class="cube" style="margin-top: 100px;  ">
+        <div class="facelong front button-1">
+          <h1>Hover to Start</h1>
           <div class="bg-graphic" style="background-color: dodgerblue;">
-            <h5>Stage 00: The Tutorial</h5>
-            <h6>How to play the game. What to do and not to do. Fill this section with small subtext</h6>
-                <div class="facelong button-lr button3" style="background-color: cyan;">
-                      Over Here   
-                      <div class="bg-graphic-2" style="background-color: goldenrod;">1
-                        <div class="facelong button-lr button4" style="background-color: cyan;">
-                          & Here  <div class="bg-graphic-3">2</div>
+            <h2>Stage 00: Welcome</h2>
+            <h3>How to play the game. What to do and not to do.</h3>
+            <h4>1. Read Carefully<br>
+              2. Don't leave the boxes<br>
+              3. Try to follow instructions<br>
+              4. Hover orange buttons to explore</h4>
+            <div class="facelong button-lr button-2">
+              <h1>Over<br>Here</h1>
+              <div class="bg-graphic-2" style="background-color: dodgerblue;">
+                <h2>🠋</h2>
+                <div class="facelong button-lr button-3">
+                  <h1>& Here</h1>
+                  <div class="bg-graphic-3">
+                    <div class="facelong button-l button-4">
+                      <h1>Start<br>Game</h1>
+                      <div class="bg-graphic-4">
+                        <h2 style="margin-right: 50px;">Stage 01: You Start Here</h2>
+                        <h3 style="margin-right: 50px;">Remember the rules!</h3>
+                        <div class="facelong button-ul button-5">
+                          <h1>Yes</h1>
+                          <div class="bridge"></div>
+                          <div class="bg-graphic-5" style="background-color: dodgerblue;">
+                          </div>
                         </div>
-
+                        <div class="facelong button-ll button-6">
+                          <h1>No</h1>
+                        </div>
                       </div>
+                    </div>
+                  </div>
                 </div>
-
-             
+              </div>
+            </div>
           </div>
         </div>
+
+      </div>
 
     </div>
 
-    <div class="container-2">
 
-      <a href="">
-        <div class="cube" style="animation-duration: 1.2s; margin-left: -1.5px; background-color: transparent;">
-          <div class="face top magenta" style="opacity: 1;"></div>
-          <div class="face left magenta" style="opacity: 1; border: .1px solid black; color: white; font-size: 30px;">☻
-          </div>
-          <div class="face front" style="background-color: black; opacity: 1; color: white;">
-            <img src="./images/eye.gif">
-          </div>
-          <h4>Instagram<br>인스타그렘<br>照片牆
-          </h4>
-        </div>
-      </a>
-      <a href="">
-        <div class="cube" style="animation-duration: 1.4s; margin-left: -1px; background-color: transparent;">
-          <div class="face top sap" style="opacity: .5;"></div>
-          <div class="face left sap" style=" opacity: 1; border: .1px solid black; color: white; font-size: 30px;">♥
-          </div>
-          <div class="face front" style="background-color: black; opacity: 1; color: white;">
-            <img src="./images/eye.gif">
-          </div>
-          <h4>Spotify<br>스파티파이<br>曲风
-          </h4>
-        </div>
-      </a>
-      <a href="">
-        <div class="cube" style="animation-duration: 1.6s; margin-left: -.5px; background-color: transparent;">
-          <div class="face top cyan" style=""></div>
-          <div class="face left cyan" style="opacity: 1; border: .1px solid black; color: white; font-size: 25px;">♻
-          </div>
-          <div class="face front" style="background-color: black; opacity: 1; color: white;">
-            <img src="./images/eye.gif">
-          </div>
-          <h4>Contact<br>콘택트<br>接触
-          </h4>
-        </div>
-      </a>
-
-
-    </div>
+  </div>
 
   </div>
 
@@ -112,78 +102,6 @@
   <!-- JAVASCRIPT PRELOADS & EXAMPLES -->
 
   <span>
-
-    <!-- tilt.js -->
-    <script type="text/javascript" src="./js/vanilla-tilt.js"></script>
-    <script type="text/javascript">
-
-      var card = document.querySelectorAll(".card")
-      for (var i = 0; i < card.length; i++) {
-        card[i].setAttribute("data-tilt", "");
-        card[i].setAttribute("data-tilt-reset", "false");
-      }
-
-      VanillaTilt.init(card, {
-        reverse: true,
-        max: 30,
-        startX: -0,
-        startY: -0,
-        speed: 5000,
-
-        scale: 1.010,
-        transition: true,
-        gyroscope: true,
-        gyroscopeMaxAngleX: 20,
-        gyroscopeMinAngleX: -20
-      });
-    </script>
-
-    <script>
-
-      // Reset VanillaTilt
-
-      timeOut = 500; // delay in milliseconds
-
-      $(".container").mouseleave(function () {
-        setTimeout(function () {
-          var card = document.querySelectorAll(".card")
-          for (var i = 0; i < card.length; i++) {
-            card[i].vanillaTilt.destroy();
-          }
-          VanillaTilt.init(card, {
-            reverse: true,
-            max: 30,
-            startX: 0,
-            startY: 0,
-            speed: 5000,
-            scale: 1.010,
-            transition: true,
-            gyroscope: true,
-            gyroscopeMaxAngleX: 20,
-            gyroscopeMinAngleX: -20
-          });
-        }, timeOut);
-      })
-
-    </script>
-
-    <!--  Typewriter.js  -->
-    <script>
-      var app = document.getElementById('typewriter');
-
-      var typewriter = new Typewriter(app, {
-        loop: true,
-        delay: 75,
-      });
-
-      typewriter
-        .typeString('안녕 Welcome to // Graphics Portfolio of 경현 Eric Joo')
-        .pauseFor(50000)
-        .deleteChars(20)
-        .typeString('GRAPHIX WORKS ARCHIVE')
-        .start();
-    </script>
-
 
     <!-- Marquee Script -->
     <script>
@@ -213,40 +131,6 @@
         requestAnimationFrame(move);
       }
     </script>
-
-    <!-- Clock Script -->
-
-    <script>
-
-      (function () {
-
-        var clockElement = document.getElementById("clock");
-
-        function updateClock(clock) {
-          clock.innerHTML = new Date().toLocaleString('en-US', {
-            timeZone: 'pst',
-            hourCycle: 'h23',
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit"
-          });
-        }
-
-        setInterval(function () {
-          updateClock(clockElement);
-        }, 1000);
-
-      }());
-
-    </script>
-
-  </span>
-
-
-
 
 </body>
 

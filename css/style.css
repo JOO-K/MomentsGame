@@ -43,15 +43,14 @@ body {
 
 }
 
-.container-2 {
-  position: absolute;
-  left: 191px;
-  top: 46px;
+.nav-cube {
+  position: relative;
   width: 200px;
-  height: 150px;
-  perspective: none;
-  margin: 0px;
-
+  height: 50px;
+  transform-style: preserve-3d;
+  transform: perspective(none);
+  transition: .2s;
+  animation: cubeload .6s;
 }
 
 .cube {
@@ -78,7 +77,7 @@ body {
 
 }
 
-.facestart {
+.nav-face-left {
   width: 50px;
   height: 150px;
   background: black;
@@ -95,7 +94,7 @@ body {
   transition: .25s;
 }
 
-.facetopstart {
+.nav-face-top {
   width: 200px;
   height: 50px;
   background: black;
@@ -112,7 +111,7 @@ body {
   transition: .25s;
 }
 
-.facelongstart {
+.nav-face-front {
   width: 200px;
   height: 150px;
   background: black;
@@ -123,7 +122,7 @@ body {
 
 }
 
-.facelongstart h1 {
+.nav-face-front h1 {
   font-family: Graphik;
   font-size: 28px;
   color: white;
@@ -153,7 +152,7 @@ body {
 
 }
 
-.facelongstart h2 {
+.nav-face-front h2 {
   font-family: Graphik;
   font-size: 10px;
   letter-spacing: -1px;
@@ -165,80 +164,62 @@ body {
   margin: 0px;
 }
 
-.facelongstart img {
+.nav-face-front img {
   object-fit: cover;
   width: 100%;
   height: 100%;
   mix-blend-mode: screen;
 }
 
-.cube:hover .facelongstart {
+.nav-cube:hover .nav-face-left {
   background-color: red;
 }
 
-.cube:hover .facetopstart {
+.nav-cube:hover .nav-face-top {
   background-color: red;
 }
 
-.cube:hover .facestart {
+.nav-cube:hover .nav-face-front {
   background-color: red;
 }
 
-.cube:hover .face {
+.nav-cube:hover .face {
   background-color: red;
 }
 
-.magenta {
-  transition: .2s;
+.cube h1 {
+  font-family: Graphik;
+  font-size: 35px;
+  color: black;
+  text-align: center;
 }
 
-.cyan {
-  transition: .2s;
-}
-
-.sap {
-  transition: .2s;
-}
-
-.cube:hover .cyan {
-  background-color: dodgerblue;
-}
-
-.cube:hover .magenta {
-  background-color: magenta;
-}
-
-.cube:hover .sap {
-  background-color: green;
-}
-
-.cube h5 {
+.cube h2 {
   display: none;
   position: absolute;
   right: 0px;
-  top: -93px;
+  top: -95px;
   font-family: Graphik;
-  font-size: 20px;
+  font-size: 30px;
   color: black;
   line-height: 14px;
   text-align: right;
   transform: scaleX(1.2);
   transform-origin: right;
   background-color: orangered;
-  padding: 8px;
-  padding-left: 50px;
+  padding:  12px 16px;
   border-radius: 3px;
   box-sizing: border-box;
 }
 
-.cube h6 {
+.cube h3 {
   display: none;
   position: absolute;
   right: 0px;
-  top: -46px;
+  top: -38px;
   width: 500px;
   font-family: Graphik;
-  font-size: 10px;
+  font-size: 15px;
   color: black;
   line-height: 14px;
   text-align: right;
@@ -246,34 +227,37 @@ body {
   transform-origin: right;
 }
 
-
-
-.cube h4 {
+.cube h4{
   display: none;
   position: absolute;
-  left: 110px;
-  top: -8px;
-  font-family: GraphikBold;
-  font-size: 12px;
-  color: black;
-  transform-style: preserve-3d;
-  transform: rotate3d(0, 1, 0, -45deg) translateZ(50px);
-  line-height: 14px;
+  left: 40px;
+  top: 30px;
+  font-family: Graphik;
+  font-size: 30px;
+  color: white;
+  line-height: 40px;
+  text-align: left;
+  transform: scaleX(1.2);
+  transform-origin: left;
+  margin: 0;
+  padding: 0;
 }
 
-
-.cube:hover h5 {
+.cube:hover h1 {
   display: block;
 }
 
-.cube:hover h6 {
+.cube:hover h2 {
+  display: block;
+}
+
+.cube:hover h3 {
   display: block;
 }
 
 .cube:hover h4 {
   display: block;
 }
-
 
 .face {
   width: 50px;
@@ -298,8 +282,6 @@ body {
   width: 200px;
   height: 160px;
   background: skyblue;
-
-  position: absolute;
   opacity: 1;
   display: flex;
   align-items: center;
@@ -321,6 +303,16 @@ body {
   transform-style: preserve-3d;
   transform: rotate3d(-.2, 1, -.095, 45deg) perspective(none);
 }
+
+.nav-cube {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  transform-style: preserve-3d;
+  transform: rotate3d(-.2, 1, -.095, 45deg) perspective(none);
+}
+
+
 
 .front {
   transform: translateZ(25px);
@@ -354,88 +346,18 @@ body {
   position: absolute;
 }
 
-.clockfont {
-  position: absolute;
-  top: 16px;
-  left: 22px;
-}
-
-.clockfont h1 {
-  font-family: Graphik;
-  font-size: 12px;
-  padding: 0;
-  margin: 0;
-}
-
-#clock {
-  animation: opacity 8s linear;
-  opacity: .4;
-}
-
-
-@keyframes opacity {
-
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: .4;
-  }
-
-}
-
-.navicon {
-  position: absolute;
-  top: 39px;
-  left: 22px;
-  width: 20px;
-  height: 20px;
-  border-radius: 100px;
-  animation: loadicon .5s ease-out;
-}
-
-@keyframes loadicon {
-
-  0% {
-    transform: translateX(-100px);
-  }
-
-  100% {
-    transform: translateX(0px);
-  }
-
-}
-
-.navicon img {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  animation: rotateicon 5s linear infinite;
-}
-
-@keyframes rotateicon {
-
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-
-}
-
 .bg-graphic {
   position: absolute;
-  top: 5px;
-  left: 221px;
+  top: 0px;
+  left: 200px;
   width: 720px;
   height: 357px;
   margin: 0;
   padding: 0;
   z-index: -2;
   display: none;
+  align-items: center;
+  justify-content: center;
   transition: .5s;
   transform: rotate3d(-0.002, 0, 0, 1deg);
   transform-origin: left;
@@ -454,8 +376,8 @@ body {
 
 }
 
-.cubehover:hover .bg-graphic {
-  display: block;
+.button-1:hover .bg-graphic {
+  display: flex;
 }
 
 
@@ -471,12 +393,29 @@ body {
   bottom: 0;
 }
 
+.button-l{
+  position: absolute;
+  bottom: 0;
+}
+
+.button-ul{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.button-ll{
+  position: absolute;
+  left: 0;
+  bottom:0;
+}
+
 .bg-graphic-2{
   position: fixed;
   bottom: 0px;
-  left: 719px;
+  left: 719.1px;
   width: 300px;
-  height: 200px;
+  height: 300px;
   margin: 0;
   padding: 0;
   z-index: -2;
@@ -487,13 +426,13 @@ body {
   animation: bganimation .3s ease-out;
 }
 
-.button3:hover .bg-graphic-2{
+.button-2:hover .bg-graphic-2{
   display: block;
 }
 
 .bg-graphic-3{
   position: fixed;
-  top: 200px;
+  top: 300px;
   left: 0px;
   width: 300px;
   height: 500px;
@@ -508,6 +447,69 @@ body {
   background-color: dodgerblue;
 }
 
-.button4:hover .bg-graphic-3{
+.button-3:hover .bg-graphic-3{
+  display: block;
+}
+
+.bg-graphic-4{
+  position: fixed;
+  bottom: 0px;
+  right: 300px;
+  width: 600px;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+  z-index: -2;
+  display: none;
+  transition: .5s;
+  transform: rotate3d(-0.002, 0, 0, 1deg);
+  transform-origin: right;
+  animation: bganimation .3s ease-out;
+  background-color: dodgerblue;
+}
+
+.button-4:hover .bg-graphic-4{
+  display: block;
+}
+
+.bridge{
+  position: fixed;
+  top: 0px;
+  right: 600px;
+  width: 200px;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  z-index: -2;
+  display: none;
+  transition: .5s;
+  transform: rotate3d(-0.002, 0, 0, 1deg);
+  transform-origin: right;
+  animation: bganimation .3s ease-out;
+  background-color: dodgerblue;
+}
+
+.bg-graphic-5{
+  position: fixed;
+  top: 0px;
+  right: 725px;
+  width: 200px;
+  height: 800px;
+  margin: 0;
+  padding: 0;
+  z-index: -2;
+  display: none;
+  transition: .5s;
+  transform: rotate3d(-0.002, 0, 0, 1deg);
+  transform-origin: right;
+  animation: bganimation .3s ease-out;
+  background-color: dodgerblue;
+}
+
+.button-5:hover .bg-graphic-5{
+  display: block;
+}
+
+.button-5:hover .bridge{
   display: block;
 }
